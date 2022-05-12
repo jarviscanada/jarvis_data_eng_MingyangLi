@@ -17,7 +17,7 @@ SELECT
 	host_id, 
 	hostname AS host_name, 
 	round5(host_usage.timestamp) AS timestamp, 
-	ceil(AVG(total_mem - memory_free)*100/total_mem) AS avg_used_mem_percentage
+	ROUND(AVG(total_mem - memory_free*1024)*100/total_mem) AS avg_used_mem_percentage
 FROM host_usage 
 	INNER JOIN host_info ON id = host_id 
 GROUP BY host_id, round5(host_usage.timestamp), total_mem, hostname;
