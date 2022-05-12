@@ -14,10 +14,11 @@ hostname=$(hostname -f)
 
 cpu_number=$(echo "$lscpu_out"  | egrep "^CPU\(s\):" | awk '{print $2}' | xargs)
 cpu_architecture=$(echo "$lscpu_out"  | egrep "^Architecture:" | awk '{print $2}' | xargs)
-cpu_model=$(echo "$lscpu_out"  | egrep "^Model Name:" | awk '{print $3}' | xargs)
+cpu_model=$(echo "$lscpu_out"  | egrep "^Model name:" | awk '{print $3,$4,$5}' | xargs)
 cpu_mhz=$(echo "$lscpu_out"  | egrep "^CPU MHz:" | awk '{print $3}' | xargs)
-L2_cache=$(echo "$lscpu_out"  | egrep "^L2" | awk '{print $3}' | xargs)
-total_mem=$(cat /proc/meminfo | egrep "^MemTotal:" | awk '{print $2,$3}' | xargs)
+L2_cache_K=$(echo "$lscpu_out"  | egrep "^L2" | awk '{print $3}' | xargs)
+L2_cache=${L2_cache_K%K}
+total_mem=$(cat /proc/meminfo | egrep "^MemTotal:" | awk '{print $2}' | xargs)
 timestamp=$(vmstat -t | awk '{print $18, $19}' | tail -n1 | xargs)
 
 
