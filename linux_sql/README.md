@@ -51,7 +51,8 @@ crontab -e
 5. Solve business questions by `queries.sql` so that clients can manage the cluster better and also plan for future recourses.
 
 ## Architecture
-![Linux_sql Architecture](./assets/Linux_sql Architecture.png)
+![Linux_sql Architecture](./assets/Linux_sql_Architecture.png)
+
 ## Scripts
 Shell script description and usage (use markdown code block for script usage)
 - psql_docker.sh: A script to create/start/stop the psql container.
