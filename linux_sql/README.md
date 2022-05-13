@@ -40,7 +40,7 @@ crontab -e
 ```
 2. add this to crontab
 ```
-* * * * * bash ~/dev/jarvis_data_eng_MingyangLi/linux_sql/host_agent/scripts/host_usage.sh localhost 5432 host_agent postgres password > /tmp/host_usage.log
+* * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password > /tmp/host_usage.log
 ```
 
 # Implemenation
@@ -55,29 +55,25 @@ crontab -e
 
 ## Scripts
 Shell script description and usage (use markdown code block for script usage)
-- psql_docker.sh
-A script to create/start/stop the psql container.
+- psql_docker.sh: A script to create/start/stop the psql container.
 ```
 ./scripts/psql_docker.sh start|stop|create [db_username][db_password]
 ```
 
-- host_info.sh
-A script to insert the host's hardware specification data into the psql instance.
+- host_info.sh: A script to insert the host's hardware specification data into the psql instance.
 ```
 bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 ```
 
-- host_usage.sh
-A script to insert the host's resource usage data into the psql instance.
+- host_usage.sh: A script to insert the host's resource usage data into the psql instance.
 ```
 bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 
-- crontab
-Execute host_usage.sh every minute, so it collects data continuously.
+- crontab: Execute host_usage.sh every minute, so it collects data continuously.
 ```
 #edit crontab jobs
-bash> crontab -e
+crontab -e
 
 #add this to crontab
 * * * * * bash /home/centos/dev/jrvs/bootcamp/linux_sql/host_agent/scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password > /tmp/host_usage.log
@@ -86,14 +82,13 @@ bash> crontab -e
 crontab -l
 ```
 
-- queries.sql
-Business Questions:
+- queries.sql:
 1. Group hosts by CPU number and sort by their memory size in descending order(within each cpu_number group)
 2. Average used memory in percentage over 5 mins interval for each host.
 3. Detect host failures whenever it inserts less than three data points within a 5-min interval.
 ```
 psql -h HOST_NAME -p 5432 -U USER_NAME -d DB_NAME -f sql/queries.sql
-``
+```
 
 ## Database Modeling
 Describe the schema of each table using markdown table syntax (do not put any sql code)
