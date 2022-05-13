@@ -93,6 +93,7 @@ psql -h HOST_NAME -p 5432 -U USER_NAME -d DB_NAME -f sql/queries.sql
 ## Database Modeling
 Describe the schema of each table using markdown table syntax (do not put any sql code)
 - `host_info`
+
 | Columns | Description |
 | ----- | ----- |
 | id | auto-increment, primary key |
@@ -106,6 +107,7 @@ Describe the schema of each table using markdown table syntax (do not put any sq
 | timestamp | UTC timestamp |
 
 - `host_usage`
+
 | Columns | Description |
 | ----- | ----- |
 | timestamp | UTC timestamp |
