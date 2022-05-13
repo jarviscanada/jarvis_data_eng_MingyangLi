@@ -51,7 +51,7 @@ crontab -e
 5. Solve business questions by `queries.sql` so that clients can manage the cluster better and also plan for future recourses.
 
 ## Architecture
-![Linux_sql Architecture](https://user-images.githubusercontent.com/37160115/168397539-9e2df5d4-1bf5-46f4-88aa-4d85866a4e12.png)
+![Linux_sql Architecture](./assets/Linux_sql_Architecture.png)
 
 ## Scripts
 Shell script description and usage (use markdown code block for script usage)
