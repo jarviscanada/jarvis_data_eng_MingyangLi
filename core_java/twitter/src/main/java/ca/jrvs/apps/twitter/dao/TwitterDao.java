@@ -1,8 +1,8 @@
 package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
-import ca.jrvs.apps.twitter.example.JsonParser;
-import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.model.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gdata.util.common.base.PercentEscaper;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
@@ -10,7 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.net.URI;
-import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class TwitterDao implements CrdDao<Tweet, String> {
     private static final String API_BASE_URI = "https://api.twitter.com";
@@ -88,7 +89,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     }
 
     private Tweet parseResponse(HttpResponse response) {
-        Tweet tweet;
+        Tweet tweet = new Tweet();
         int status = response.getStatusLine().getStatusCode();
         if (status != HTTP_OK) {
             throw new RuntimeException("Unexpected HTTP status:" + status);
@@ -106,7 +107,34 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         }
 
         try {
-            tweet = JsonParser.toObjectFromJson(jsonStr, Tweet.class);
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String,Object> map = mapper.readValue(jsonStr, Map.class);
+            tweet.setCreated_at((String) map.get("created_at"));
+            tweet.setId((Long) map.get("id"));
+            tweet.setId_str((String) map.get("id_str"));
+            tweet.setText((String) map.get("text"));
+            Entities entities = new Entities();
+            ArrayList<Hashtag> hashtagArrayList = (ArrayList<Hashtag>) ((Map) map.get("entities")).get("hashtags");
+            Hashtag[] hashtags = new Hashtag[hashtagArrayList.size()];
+            hashtagArrayList.toArray(hashtags);
+            entities.setHashtags(hashtags);
+            ArrayList<UserMention> userMentionArrayList = (ArrayList<UserMention>) ((Map) map.get("entities")).get("user_mentions");
+            UserMention[] userMentions = new UserMention[userMentionArrayList.size()];
+            userMentionArrayList.toArray(userMentions);
+            entities.setHashtags(hashtags);
+            entities.setUser_mentions(userMentions);
+            tweet.setEntities(entities);
+            Coordinates coordinates = new Coordinates();
+            ArrayList<Double> doubleArrayList = (ArrayList<Double>) ((Map) map.get("coordinates")).get("coordinates");
+            Double[] doubles = new Double[doubleArrayList.size()];
+            doubleArrayList.toArray(doubles);
+            coordinates.setCoordinates(doubles);
+            coordinates.setType((String) ((Map) map.get("coordinates")).get("type"));
+            tweet.setCoordinates(coordinates);
+            tweet.setRetweet_count((Integer) map.get("retweet_count"));
+            tweet.setFavorite_count((Integer) map.get("favorite_count"));
+            tweet.setFavorited((Boolean) map.get("favorited"));
+            tweet.setRetweeted((Boolean) map.get("retweeted"));
         } catch (IOException e) {
             throw new RuntimeException("Unable to convert JSON str to Object", e);
         }

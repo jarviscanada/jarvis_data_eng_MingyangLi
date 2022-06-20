@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Coordinates {
-    private Float[] coordinates;
+    private Double[] coordinates;
     private String type;
 
-    public Float[] getCoordinates() {
+    public Double[] getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Float[] coordinates) {
+    public void setCoordinates(Double[] coordinates) {
         this.coordinates = coordinates;
     }
 

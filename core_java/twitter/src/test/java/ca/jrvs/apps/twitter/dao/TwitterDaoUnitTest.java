@@ -56,7 +56,6 @@ public class TwitterDaoUnitTest {
         assertNotNull(tweet);
         assertNotNull(tweet.getText());
         assertEquals(tweet.getText(), "test");
-
     }
 
     @Test
@@ -95,6 +94,5 @@ public class TwitterDaoUnitTest {
         assertNotNull(tweet);
         assertNotNull(tweet.getText());
         assertEquals(tweet.getText(), "test");
-
     }
 }

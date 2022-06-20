@@ -3,6 +3,8 @@ package ca.jrvs.apps.twitter.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.Arrays;
+import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -22,7 +24,7 @@ public class Tweet {
     private String created_at;
 
     @JsonProperty("id")
-    private double id;
+    private Long id;
 
     @JsonProperty("id_str")
     private String id_str;
@@ -37,7 +39,7 @@ public class Tweet {
     private Coordinates coordinates;
 
     @JsonProperty("retweet_count")
-    private int retweet_count;
+    private Integer retweet_count;
 
     @JsonProperty("favorite_count")
     private Integer favorite_count;
@@ -59,12 +61,12 @@ public class Tweet {
     }
 
     @JsonProperty("id")
-    public double getId() {
+    public Long getId() {
         return id;
     }
 
     @JsonProperty("id")
-    public void setId(double id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -109,12 +111,12 @@ public class Tweet {
     }
 
     @JsonProperty("retweet_count")
-    public int getRetweet_count() {
+    public Integer getRetweet_count() {
         return retweet_count;
     }
 
     @JsonProperty("retweet_count")
-    public void setRetweet_count(int retweet_count) {
+    public void setRetweet_count(Integer retweet_count) {
         this.retweet_count = retweet_count;
     }
 
@@ -146,5 +148,64 @@ public class Tweet {
     @JsonProperty("retweeted")
     public void setRetweeted(Boolean retweeted) {
         this.retweeted = retweeted;
+    }
+
+    public void select(String[] fields) {
+        if (fields == null) {
+            return;
+        }
+        String[] properties = new String[] {
+            "created_at",
+            "id",
+            "id_str",
+            "text",
+            "entities",
+            "coordinates",
+            "retweet_count",
+            "favorite_count",
+            "favorited",
+            "retweeted"
+        };
+        for (String field : fields) {
+            if (!Arrays.asList(properties).contains(field)) {
+                throw new IllegalArgumentException("invalid fields");
+            }
+        }
+        for (String property : properties) {
+            if (!Arrays.asList(fields).contains(property)) {
+                switch(property) {
+                    case "created_at":
+                        setCreated_at(null);
+                        break;
+                    case "id":
+                        setId(null);
+                        break;
+                    case "id_str":
+                        setId_str(null);
+                        break;
+                    case "text":
+                        setText(null);
+                        break;
+                    case "entities":
+                        setEntities(null);
+                        break;
+                    case "coordinates":
+                        setCoordinates(null);
+                        break;
+                    case "retweet_count":
+                        setRetweet_count(null);
+                        break;
+                    case "favorite_count":
+                        setFavorite_count(null);
+                        break;
+                    case "favorited":
+                        setFavorited(null);
+                        break;
+                    case "retweeted":
+                        setRetweeted(null);
+                        break;
+                }
+            }
+        }
     }
 }
