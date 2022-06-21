@@ -41,14 +41,14 @@ public class TwitterDaoUnitTest {
 
     @Test
     public void postTweet() throws Exception {
-        when(mockHelper.httpPost(isNotNull())).thenThrow(new RuntimeException("mock"));
+
         try {
             dao.create(new Tweet());
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
-        when(mockHelper.httpPost(isNotNull())).thenReturn(null);
+
         TwitterDao spyDao = Mockito.spy(dao);
         Tweet expectedTweet = JsonParser.toObjectFromJson(tweetJonsStr, Tweet.class);
         doReturn(expectedTweet).when(spyDao).create(any());
@@ -67,7 +67,7 @@ public class TwitterDaoUnitTest {
         } catch (RuntimeException e) {
             assertTrue(true);
         }
-        when(mockHelper.httpGet(isNotNull())).thenReturn(null);
+
         TwitterDao spyDao = Mockito.spy(dao);
         Tweet expectedTweet = JsonParser.toObjectFromJson(tweetJonsStr, Tweet.class);
         doReturn(expectedTweet).when(spyDao).findById(any());
@@ -86,7 +86,7 @@ public class TwitterDaoUnitTest {
         } catch (RuntimeException e) {
             assertTrue(true);
         }
-        when(mockHelper.httpPost(isNotNull())).thenReturn(null);
+
         TwitterDao spyDao = Mockito.spy(dao);
         Tweet expectedTweet = JsonParser.toObjectFromJson(tweetJonsStr, Tweet.class);
         doReturn(expectedTweet).when(spyDao).deleteById(any());

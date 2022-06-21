@@ -21,7 +21,7 @@ public class TwitterService implements Service {
      * @throws IllegalArgumentException if text exceed max number of allowed characters or lat/long out of range
      */
     @Override
-    public Tweet postTweet(Tweet tweet) {
+    public Tweet postTweet(Tweet tweet) throws IllegalArgumentException {
         if (tweet.getText().length() > 140) {
             throw new IllegalArgumentException("over 140 characters");
         }
@@ -42,7 +42,7 @@ public class TwitterService implements Service {
      * @throws IllegalArgumentException if id or fields param is invalid
      */
     @Override
-    public Tweet showTweet(String id, String[] fields) {
+    public Tweet showTweet(String id, String[] fields) throws IllegalArgumentException {
         Tweet tweet = (Tweet) dao.findById(id);
         tweet.select(fields);
         return tweet;
@@ -60,10 +60,11 @@ public class TwitterService implements Service {
      * @throws IllegalArgumentException if one of the IDs is invalid.
      */
     @Override
-    public List<Tweet> deleteTweets(String[] ids) {
+    public List<Tweet> deleteTweets(String[] ids) throws IllegalArgumentException {
         ArrayList<Tweet> tweets = new ArrayList<>();
         for (String id : ids) {
-            tweets.add((Tweet) dao.deleteById(id));
+            Tweet tweet = (Tweet) dao.deleteById(id);
+            tweets.add(tweet);
         }
         return tweets;
     }

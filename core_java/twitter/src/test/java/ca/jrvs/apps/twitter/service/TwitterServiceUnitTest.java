@@ -4,7 +4,6 @@ import ca.jrvs.apps.twitter.dao.CrdDao;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 import ca.jrvs.apps.twitter.model.Tweet;
@@ -16,8 +15,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-
 @RunWith(MockitoJUnitRunner.class)
 public class TwitterServiceUnitTest {
     @Mock
@@ -28,7 +25,6 @@ public class TwitterServiceUnitTest {
 
     @Test
     public void postTweet() {
-        when(dao.create(isNotNull())).thenReturn(new Tweet());
         try {
             twitterService.postTweet(TweetUtils.buildTweet(
                     "01234567891234567890"
@@ -40,40 +36,41 @@ public class TwitterServiceUnitTest {
                             + "01234567891234567890"
                             + "01234567891234567890"
                     , 0.0, 0.0));
+            fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
 
         try {
             twitterService.postTweet(TweetUtils.buildTweet("test", 100.0, 100.0));
+            fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
 
         try {
             twitterService.postTweet(TweetUtils.buildTweet("test", -200.0, -20.0));
+            fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
-
-        twitterService.postTweet(TweetUtils.buildTweet("test", 50.0, 0.0));
+        when(dao.create(isNotNull())).thenReturn(new Tweet());
+        TwitterService spy = Mockito.spy(twitterService);
+        spy.postTweet(TweetUtils.buildTweet("test", 50.0, 0.0));
 
     }
 
 
     @Test
     public void showTweet() {
-        when(dao.findById(isNotNull())).thenThrow(new RuntimeException("mock"));
         try {
             twitterService.showTweet("1");
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
-        when(dao.findById(isNotNull())).thenReturn(null);
+        when(dao.findById(isNotNull())).thenReturn(new Tweet());
         TwitterService spy = Mockito.spy(twitterService);
-
-        doReturn(new Tweet()).when(spy).showTweet(isNotNull());
         spy.showTweet("id");
     }
     @Test
@@ -85,10 +82,8 @@ public class TwitterServiceUnitTest {
         } catch (RuntimeException e) {
             assertTrue(true);
         }
-        when(dao.deleteById(isNotNull())).thenReturn(null);
+        when(dao.deleteById(isNotNull())).thenReturn(new Tweet());
         TwitterService spy = Mockito.spy(twitterService);
-
-        doReturn(new ArrayList<>()).when(spy).deleteTweets(isNotNull());
         spy.deleteTweets(new String[]{"1"});
     }
 }
