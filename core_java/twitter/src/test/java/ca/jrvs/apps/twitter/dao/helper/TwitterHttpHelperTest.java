@@ -16,7 +16,7 @@ public class TwitterHttpHelperTest {
                 System.getenv("consumerKey"), System.getenv("consumerSecret"),
                 System.getenv("accessToken"), System.getenv("tokenSecret"));
         HttpResponse response = twitterHttpHelper.httpPost(
-                new URI("https://api.twitter.com/1.1/statuses/update.json?status=test"));
+                new URI("https://api.twitter.com/1.1/statuses/update.json?status="));
         System.out.println(EntityUtils.toString(response.getEntity()));
     }
 

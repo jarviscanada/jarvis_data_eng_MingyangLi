@@ -17,8 +17,8 @@ import static org.junit.Assert.*;
 public class TwitterServiceIntTest {
     private String testId;
     private String postId;
-    private final String post = "sometext";
-    private final String test = "test";
+    private final String post = "service_text";
+    private final String test = "service_test";
     private final Double lon = -100.0;
     private final Double lat = 10.0;
     private TwitterDao dao;

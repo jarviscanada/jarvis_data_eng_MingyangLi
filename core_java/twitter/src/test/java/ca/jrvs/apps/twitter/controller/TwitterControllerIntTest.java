@@ -19,8 +19,8 @@ public class TwitterControllerIntTest {
     private TwitterController twitterController;
     private String postId;
     private String testId;
-    private final String post = "sometext";
-    private final String test = "test";
+    private final String post = "controller_text";
+    private final String test = "controller_test";
     private final Double lon = -100.0;
     private final Double lat = 10.0;
 
@@ -39,7 +39,7 @@ public class TwitterControllerIntTest {
 
     @Test
     public void postTweet() {
-        Tweet tweet = twitterController.postTweet(new String[]{"post", post, "[" + lat + ":" + lon + "]"});
+        Tweet tweet = twitterController.postTweet(new String[]{"post", post, lat + ":" + lon});
         this.postId = tweet.getId_str();
         assertEquals(post, tweet.getText());
         assertNotNull(tweet.getCoordinates());
@@ -57,16 +57,16 @@ public class TwitterControllerIntTest {
         assertEquals(lon,tweet.getCoordinates().getCoordinates()[0]);
         assertEquals(lat,tweet.getCoordinates().getCoordinates()[1]);
 
-        tweet = twitterController.showTweet(new String[]{"show", testId, "[text]"});
+        tweet = twitterController.showTweet(new String[]{"show", testId, "text,id"});
         assertEquals(test, tweet.getText());
         assertNull(tweet.getCoordinates());
     }
 
     @Test
     public void deleteTweet() {
-        Tweet tweet = twitterController.postTweet(new String[]{"post", post, "[" + lat + ":" + lon + "]"});
+        Tweet tweet = twitterController.postTweet(new String[]{"post", post, lat + ":" + lon});
         this.postId = tweet.getId_str();
-        List<Tweet> tweets = twitterController.deleteTweet(new String[]{"delete", "[" + postId + "," + testId + "]"});
+        List<Tweet> tweets = twitterController.deleteTweet(new String[]{"delete", postId + "," + testId});
 
         assertEquals(post, tweets.get(0).getText());
         assertNotNull(tweets.get(0).getCoordinates());

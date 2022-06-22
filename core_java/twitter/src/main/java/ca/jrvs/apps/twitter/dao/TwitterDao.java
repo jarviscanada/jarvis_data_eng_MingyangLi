@@ -7,12 +7,14 @@ import com.google.gdata.util.common.base.PercentEscaper;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Map;
 
+@Repository
 public class TwitterDao implements CrdDao<Tweet, String> {
     private static final String API_BASE_URI = "https://api.twitter.com";
     private static final String POST_PATH = "/1.1/statuses/update.json";
@@ -21,9 +23,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     private static final String QUERY_SYM = "?";
     private static final String AMPERSAND = "&";
     private static final String EQUAL = "=";
-
     private static final int HTTP_OK = 200;
-
     private HttpHelper httpHelper;
 
     @Autowired
@@ -94,18 +94,15 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         if (status != HTTP_OK) {
             throw new RuntimeException("Unexpected HTTP status:" + status);
         }
-
         if (response.getEntity() == null) {
             throw new RuntimeException("Empty response");
         }
-
         String jsonStr;
         try {
             jsonStr = EntityUtils.toString(response.getEntity());
         } catch (IOException e) {
             throw new RuntimeException("Failed to convert entity to String", e);
         }
-
         try {
             ObjectMapper mapper = new ObjectMapper();
             Map<String,Object> map = mapper.readValue(jsonStr, Map.class);
@@ -138,10 +135,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         } catch (IOException e) {
             throw new RuntimeException("Unable to convert JSON str to Object", e);
         }
-
         return tweet;
     }
-
 }
-
-

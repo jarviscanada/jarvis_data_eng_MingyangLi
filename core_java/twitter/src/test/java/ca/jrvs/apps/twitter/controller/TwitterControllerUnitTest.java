@@ -34,28 +34,28 @@ public class TwitterControllerUnitTest {
                             + "01234567891234567890"
                             + "01234567891234567890"
                             + "01234567891234567890",
-                    "[0.0:0.0]"
+                    "0.0:0.0"
             });
         } catch (RuntimeException e) {
             assertTrue(true);
         }
 
         try {
-            twitterController.postTweet(new String[]{"post", "text", "[100.0:100.0]"});
+            twitterController.postTweet(new String[]{"post", "controller_unit_test", "100.0:100.0"});
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
 
         try {
-            twitterController.postTweet(new String[]{"post", "test", "[-20.0:-200.0]"});
+            twitterController.postTweet(new String[]{"post", "controller_unit_test", "-20.0:-200.0"});
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
         when(service.postTweet(isNotNull())).thenReturn(null);
         TwitterController spy = Mockito.spy(twitterController);
-        spy.postTweet(new String[]{"post", "test", "[-20.0:-20.0]"});
+        spy.postTweet(new String[]{"post", "controller_unit_test", "-20.0:-20.0"});
     }
 
     @Test
@@ -76,13 +76,13 @@ public class TwitterControllerUnitTest {
     public void deleteTweet() {
         when(service.deleteTweets(isNotNull())).thenThrow(new RuntimeException("mock"));
         try {
-            twitterController.deleteTweet(new String[]{"delete", "[1,2]"});
+            twitterController.deleteTweet(new String[]{"delete", "1,2"});
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
         when(service.deleteTweets(isNotNull())).thenReturn(null);
         TwitterController spy = Mockito.spy(twitterController);
-        spy.deleteTweet(new String[]{"delete", "[1,2]"});
+        spy.deleteTweet(new String[]{"delete", "1,2"});
     }
 }

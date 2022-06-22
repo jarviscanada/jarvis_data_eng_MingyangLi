@@ -42,21 +42,21 @@ public class TwitterServiceUnitTest {
         }
 
         try {
-            twitterService.postTweet(TweetUtils.buildTweet("test", 100.0, 100.0));
+            twitterService.postTweet(TweetUtils.buildTweet("service_unit_test", 100.0, 100.0));
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
 
         try {
-            twitterService.postTweet(TweetUtils.buildTweet("test", -200.0, -20.0));
+            twitterService.postTweet(TweetUtils.buildTweet("service_unit_test", -200.0, -20.0));
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);
         }
         when(dao.create(isNotNull())).thenReturn(new Tweet());
         TwitterService spy = Mockito.spy(twitterService);
-        spy.postTweet(TweetUtils.buildTweet("test", 50.0, 0.0));
+        spy.postTweet(TweetUtils.buildTweet("service_unit_test", 50.0, 0.0));
 
     }
 

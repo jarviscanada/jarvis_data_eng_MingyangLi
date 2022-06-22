@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class TwitterDaoIntTest {
     static private String id_str;
-    private final String text = "test";
+    private final String text = "dao_test";
     private final Double lon = -100.0;
     private final Double lat = 10.0;
     private TwitterDao dao;

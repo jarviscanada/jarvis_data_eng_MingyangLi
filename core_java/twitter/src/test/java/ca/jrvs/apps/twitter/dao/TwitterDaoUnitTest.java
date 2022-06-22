@@ -21,7 +21,7 @@ public class TwitterDaoUnitTest {
             + "   \"created_at\":\"Mon Feb 18 21:24:39 +0000 2019\",\n"
             + "   \"id\":1097607853932564480,\n"
             + "   \"id_str\":\"1097607853932564480\",\n"
-            + "   \"text\":\"test\",\n"
+            + "   \"text\":\"dao_unit_test\",\n"
             + "   \"entities\":{\n"
             + "      \"hashtags\":[],\n"
             + "      \"user_mentions\":[]\n"
@@ -41,7 +41,6 @@ public class TwitterDaoUnitTest {
 
     @Test
     public void postTweet() throws Exception {
-
         try {
             dao.create(new Tweet());
             fail();
@@ -55,7 +54,7 @@ public class TwitterDaoUnitTest {
         Tweet tweet = spyDao.create(expectedTweet);
         assertNotNull(tweet);
         assertNotNull(tweet.getText());
-        assertEquals(tweet.getText(), "test");
+        assertEquals(tweet.getText(), "dao_unit_test");
     }
 
     @Test
@@ -74,7 +73,7 @@ public class TwitterDaoUnitTest {
         Tweet tweet = spyDao.findById("");
         assertNotNull(tweet);
         assertNotNull(tweet.getText());
-        assertEquals(tweet.getText(), "test");
+        assertEquals(tweet.getText(), "dao_unit_test");
     }
 
     @Test
@@ -93,6 +92,6 @@ public class TwitterDaoUnitTest {
         Tweet tweet = spyDao.deleteById("");
         assertNotNull(tweet);
         assertNotNull(tweet.getText());
-        assertEquals(tweet.getText(), "test");
+        assertEquals(tweet.getText(), "dao_unit_test");
     }
 }
