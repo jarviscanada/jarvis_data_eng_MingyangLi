@@ -50,6 +50,15 @@ public class TweetUtils {
         entities.setUser_mentions(userMentions);
         entities.setHashtags(hashtags);
         tweet.setEntities(entities);
+
+
+        for (int i = userMentions.length - 1; i >= 0; i--) {
+            text = "@" + userMentions[i].getName() + " " + text;
+        }
+
+        for (int i = 0; i < hashtags.length; i++) {
+            text = text + " #" + hashtags[i].getText();
+        }
         tweet.setText(text);
         return tweet;
     }

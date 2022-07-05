@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Hashtag {
-    private int[] indices;
+    private Integer[] indices;
     private String text;
 
-    public int[] getIndices() {
+    public Integer[] getIndices() {
         return indices;
     }
 
-    public void setIndices(int[] indices) {
+    public void setIndices(Integer[] indices) {
         this.indices = indices;
     }
 

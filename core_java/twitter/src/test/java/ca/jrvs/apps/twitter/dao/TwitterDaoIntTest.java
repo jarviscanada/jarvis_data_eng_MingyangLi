@@ -12,8 +12,7 @@ import static org.junit.Assert.*;
 
 public class TwitterDaoIntTest {
     static private String id_str;
-    private final String text = "@frank@mingyang @li dao_test#test#dao #junit";
-    private final String post_text = "dao_test";
+    private final String text = "@Mingyang_jrvs dao_test #test #dao #junit";
     private final Double lon = -100.0;
     private final Double lat = 10.0;
     private TwitterDao dao;
@@ -35,7 +34,7 @@ public class TwitterDaoIntTest {
         }
         Tweet tweet = dao.create(postTweet);
         id_str = tweet.getId_str();
-        assertEquals(post_text, tweet.getText());
+        assertEquals(text, tweet.getText());
         assertNotNull(tweet.getCoordinates());
         assertEquals(2,tweet.getCoordinates().getCoordinates().length);
         assertEquals(lon,tweet.getCoordinates().getCoordinates()[0]);
@@ -46,7 +45,7 @@ public class TwitterDaoIntTest {
     public void findById() {
         System.out.println(id_str);
         Tweet tweet = dao.findById(id_str);
-        assertEquals(post_text, tweet.getText());
+        assertEquals(text, tweet.getText());
         assertNotNull(tweet.getCoordinates());
         assertEquals(2,tweet.getCoordinates().getCoordinates().length);
         assertEquals(lon,tweet.getCoordinates().getCoordinates()[0]);
@@ -56,7 +55,7 @@ public class TwitterDaoIntTest {
     @Test
     public void deleteById() {
         Tweet tweet = dao.deleteById(id_str);
-        assertEquals(post_text, tweet.getText());
+        assertEquals(text, tweet.getText());
         assertNotNull(tweet.getCoordinates());
         assertEquals(2,tweet.getCoordinates().getCoordinates().length);
         assertEquals(lon,tweet.getCoordinates().getCoordinates()[0]);

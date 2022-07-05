@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 @Repository
@@ -110,17 +111,35 @@ public class TwitterDao implements CrdDao<Tweet, String> {
             tweet.setId((Long) map.get("id"));
             tweet.setId_str((String) map.get("id_str"));
             tweet.setText((String) map.get("text"));
+
             Entities entities = new Entities();
-            ArrayList<Hashtag> hashtagArrayList = (ArrayList<Hashtag>) ((Map) map.get("entities")).get("hashtags");
-            Hashtag[] hashtags = new Hashtag[hashtagArrayList.size()];
-            hashtagArrayList.toArray(hashtags);
+
+            ArrayList<HashMap> hashtagHashMap = (ArrayList<HashMap>) ((Map) map.get("entities")).get("hashtags");
+            Hashtag[] hashtags = new Hashtag[hashtagHashMap.size()];
+            for (int i = 0; i < hashtagHashMap.size(); i++) {
+                Hashtag hashtag = new Hashtag();
+                hashtag.setText((String) hashtagHashMap.get(i).get("text"));
+                ArrayList<Integer> indices = ((ArrayList<Integer>) hashtagHashMap.get(i).get("indices"));
+                hashtag.setIndices(new Integer[]{indices.get(0), indices.get(1)});
+                hashtags[i] = hashtag;
+            }
             entities.setHashtags(hashtags);
-            ArrayList<UserMention> userMentionArrayList = (ArrayList<UserMention>) ((Map) map.get("entities")).get("user_mentions");
-            UserMention[] userMentions = new UserMention[userMentionArrayList.size()];
-            userMentionArrayList.toArray(userMentions);
-            entities.setHashtags(hashtags);
+
+            ArrayList<HashMap> userHashMap = (ArrayList<HashMap>) ((Map) map.get("entities")).get("user_mentions");
+            UserMention[] userMentions = new UserMention[userHashMap.size()];
+            for (int i = 0; i < userHashMap.size(); i++) {
+                UserMention userMention = new UserMention();
+                userMention.setId((Long) userHashMap.get(i).get("id"));
+                userMention.setId_str((String) userHashMap.get(i).get("id_str"));
+                ArrayList<Integer> indices = ((ArrayList<Integer>) userHashMap.get(i).get("indices"));
+                userMention.setIndices(new Integer[]{indices.get(0), indices.get(1)});
+                userMention.setName((String) userHashMap.get(i).get("name"));
+                userMention.setScreen_name((String) userHashMap.get(i).get("screen_name"));
+            }
             entities.setUser_mentions(userMentions);
+
             tweet.setEntities(entities);
+
             Coordinates coordinates = new Coordinates();
             ArrayList<Double> doubleArrayList = (ArrayList<Double>) ((Map) map.get("coordinates")).get("coordinates");
             Double[] doubles = new Double[doubleArrayList.size()];
