@@ -1,0 +1,7 @@
+.*
+target/
+out/
+log/
+*.iml
+Ex_Files_Learning_JDBC/
+
