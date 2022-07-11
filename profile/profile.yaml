@@ -117,11 +117,9 @@ others:
   - title: "Languages"
     #list of items
     bullets:
-      - "Chinese"
-      - "Japanese (only a little)"
+      - "Chinese (first language)"
   - title: "Activities/Hobbies"
     bullets:
       - "Badminton player"
       - "Spinning"
       - "Competitive gaming"
-      - "Latte art"

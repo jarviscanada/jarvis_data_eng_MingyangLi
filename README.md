@@ -47,9 +47,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MingyangLi
 
 
 ## Miscellaneous
-- Chinese
-- Japanese (only a little)
+- Chinese (first language)
 - Badminton player
 - Spinning
 - Competitive gaming
-- Latte art
