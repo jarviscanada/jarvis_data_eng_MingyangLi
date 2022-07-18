@@ -66,7 +66,7 @@ highlighted_projects:
     #project name
   - name: "Sliding-Puzzle"
     #URL is optional
-    git_url: "https://github.com/ZewenShen/Sliding-Puzzle"
+    git_url: "https://github.com/limingy9/Sliding-Puzzle"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: "Designed a sliding-puzzle game in Verilog. The game displays a 4 x 4 board where only numbers from 1 
      to 15 are randomly assigned, the player can move squares in 4 directions by 4 buttons on the breadboard to make the

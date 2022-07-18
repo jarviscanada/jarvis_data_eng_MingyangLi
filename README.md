@@ -25,7 +25,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MingyangLi
 
 
 ## Highlighted Projects
-**Sliding-Puzzle** [[GitHub](https://github.com/ZewenShen/Sliding-Puzzle)]: Designed a sliding-puzzle game in Verilog. The game displays a 4 x 4 board where only numbers from 1 to 15 are randomly assigned, the player can move squares in 4 directions by 4 buttons on the breadboard to make the numbers in order. Implemented time countdown and move counter to display time left and moves used on the breadboard.
+**Sliding-Puzzle** [[GitHub](https://github.com/limingy9/Sliding-Puzzle)]: Designed a sliding-puzzle game in Verilog. The game displays a 4 x 4 board where only numbers from 1 to 15 are randomly assigned, the player can move squares in 4 directions by 4 buttons on the breadboard to make the numbers in order. Implemented time countdown and move counter to display time left and moves used on the breadboard.
 
 **Photo Album**: Designed a photo album application in Java. The application recursively searches all the photos in the given directory and presents them as icons, in a list or in a gallery. Implemented a tag feature, so that users can add or delete tags for each photo, and filter the result by tags. Implemented serialization to prevent the loss of tags by termination.
 

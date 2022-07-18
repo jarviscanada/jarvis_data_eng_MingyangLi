@@ -16,7 +16,7 @@
   "highlighted_projects": [
     {
       "description": "Designed a sliding-puzzle game in Verilog. The game displays a 4 x 4 board where only numbers from 1 to 15 are randomly assigned, the player can move squares in 4 directions by 4 buttons on the breadboard to make the numbers in order. Implemented time countdown and move counter to display time left and moves used on the breadboard.",
-      "git_url": "https://github.com/ZewenShen/Sliding-Puzzle",
+      "git_url": "https://github.com/limingy9/Sliding-Puzzle",
       "name": "Sliding-Puzzle"
     },
     {
