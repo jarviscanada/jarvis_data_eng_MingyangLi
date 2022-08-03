@@ -61,8 +61,8 @@ jarvis_projects:
     git_url: "/core_java"
     description:
       - "Grep App: Implemented a simple grep app in Java. The app searches for a text pattern recursively in a given 
-      directory, and output matched lines to a file. Used slf4j library for log, and regex library to search the pattern. 
-      overridden the methods that return a list of all files in a given directory and a list of all strings in a file 
+      directory, and outputs matched lines to a file. Used slf4j library for log, and regex library to search the pattern. 
+      Overridden the methods that return a list of all files in a given directory and a list of all strings in a file 
       using Lambda and Stream APIs. Dockerized the grep app by docker and push the image to Docker for easier distribution."
       - "JDBC App: Implemented CRUD process for a database in a PSQL instance by a java program. Coded JDBC to connect 
       to the database, customer DAO to handle CRUD process, docker container to contain the PSQL instance.
