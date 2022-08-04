@@ -1,0 +1,137 @@
+# Preferred name (Characters only)
+name: "Mingyang Li"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_MingyangLi
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary:
+  "I achieved a Bachelor of Science in Mathematics and Computer at the University of Toronto. 
+   I did excellent in all proof courses such as number theory, group theory, algorithms, data structures and analysis. 
+   Logical thinking and pattern searches are my strengths and passions.
+   I enjoy proving the correctness of the algorithms and optimizing code performance.
+   I had one year working experience at GN Education as an operation specialist, which developed my 
+   problem-solving skills as I was in charge of all technical issues on the website.
+   I also improved my communication skills since I supervised the workflow across all departments within the business.
+   I have been a Data Engineer at Jarvis Technologies Group since May, working in an Agile environment using Python, 
+   PostgreSQL, bash script, and Java. 
+   I programmed a Linux cluster monitor, Java grep, JDBC, and Java Twitter app, 
+   with lots of hands-on experience in IntelliJ, git, Docker, regex, Lambda API, Stream API, REST API and JSON."
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Python
+    - PostgresSQL
+    - Java
+    - Scrum
+    - Git
+  # At least 5 skills
+  competent:
+    - Pandas
+    - Unit Test
+    - REST API
+    - Docker
+    - Bash Script
+
+  # At least 5 skills
+  familiar:
+    - C
+    - RSA
+    - Regex
+    - Dynamic Programming
+    - Greedy Algorithm
+    - Linear Optimization
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Provisioned a psql instance using docker and created host_info and host_usage tables with DDL.
+    Programmed bash scripts for Linux cluster monitoring agents to collect hardware information and 
+    usage data for each host in the cluster, and then persist data into a psql instance.
+    Used crontab to collect data automatically for each minute. 
+    Designed SQL queries for business data analytics and tested with some sample data generated on purpose."
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Grep App: Implemented a simple grep app in Java. The app searches for a text pattern recursively in a given 
+      directory, and outputs matched lines to a file. Used slf4j library for log, and regex library to search the pattern. 
+      Overridden the methods that return a list of all files in a given directory and a list of all strings in a file 
+      using Lambda and Stream APIs. Dockerized the grep app by docker and push the image to Docker for easier distribution."
+      - "JDBC App: Implemented CRUD process for a database in a PSQL instance by a java program. Coded JDBC to connect 
+      to the database, customer DAO to handle CRUD process, docker container to contain the PSQL instance.
+      Used bash scripts to set up the database by docker, and SQL files to set up the tables in the database. 
+      Ran the CURD process using the app and checked the result by queries."
+      - "Twitter App: Developed a java application that can create, read, and delete tweets from CLI. Utilized Twitter REST 
+      API in the DAO layer. Handled the business logic in the service layer. Parsed CLI input to call corresponding service 
+      methods in the controller layer. Implemented Spring framework using Spring Boot to manage the classes with IoC container.
+      Tested with integration tests and unit tests using JUnit 4 and Mockito."
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+    #project name
+  - name: "Sliding-Puzzle"
+    #URL is optional
+    git_url: "https://github.com/limingy9/Sliding-Puzzle"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Designed a sliding-puzzle game in Verilog. The game displays a 4 x 4 board where only numbers from 1 
+     to 15 are randomly assigned, and the player can move squares in 4 directions by 4 buttons on the breadboard to make the
+     numbers in order. Implemented time countdown and move counter to display time left and moves used on the breadboard."
+  - name: "Photo Album"
+    description: "Designed a photo album application in Java. The application recursively searches all the photos in the 
+    given directory and presents them as icons, in a list or in a gallery. Implemented a tag feature, so that users can 
+    add or delete tags for each photo, and filter the result by tags. Implemented serialization to prevent the loss of 
+    tags by termination."
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Data Engineer"
+    company: "Jarvis"
+    duration: "2022/04 - present"
+    description: "Worked on backend projects related to PostgreSQL, REST API, and Java. Practised Scrum, 
+    supporting Scrum team members by arranging daily Scrum meetings and posting helpful suggestions. 
+    Took advice from Scrum Master and Product Owner seriously and produced top-grade work."
+  - title: "Operation Specialist"
+    company: "GN Education Inc."
+    duration: "2021/01 - 2022/03"
+    description: "Managed the workflow throughout all departments within the business. Handled all order information 
+    requests from sales and technical issues on the website. Updated product information and video service on websites for clients.
+    Calculated sales commission and payroll for all staff. Arranged and hosted daily zoom meetings."
+  - title: "Tutor"
+    company: "Talent Education - GN Education Inc."
+    duration: "2018/09 - 2022/03"
+    description: "Tutored hundreds of university students in Mathematics courses, such as calculus, linear algebra and 
+    number theory. Improved their grade by at least one level. Solved any problems asked by students with concrete 
+    examples and detailed explanations."
+#List of education
+education: 
+  - school_name: "University of Toronto"
+    duration: "2016/09 - 2020/11"
+    degree: "Bachelor of Science"
+    department: "Computer Science, Mathematics"
+    # optional
+    awards_achievements: 
+      - "Distinction"
+      - "Dean's List (2016)"
+      - "GPA: 3.4/4.0"
+
+#Optional section
+others:
+    #category
+  - title: "Languages"
+    #list of items
+    bullets:
+      - "Bilingual (Mandarin and English)"
+  - title: "Activities/Hobbies"
+    bullets:
+      - "Badminton player"
+      - "Spinning"
