@@ -1,12 +1,12 @@
 # Mingyang Li . Jarvis Consulting
 
-I achieved a Bachelor of Science in Mathematics and Computer Science majors offered by the University of Toronto. I did great in the courses like number theory, group theory, algorithms, data structures and analysis, which were all involved with proofs. Logical thinking and pattern searches are my strengths and passions. I enjoy proving the correctness of the algorithms and optimizing my code in running time and time complexity. I had one year of full-time working experience at GN Education as an operation specialist, which developed my problem-solving skills as I was in charge of all technical issues on the website. I also improved my communication skills since I managed the workflow across all departments within the business. I have been a Data Engineer at Jarvis Technologies Group since May, using PostgreSQL, Linux bash script, and Java. I programmed a Linux cluster monitor, Java grep, JDBC, and Java Twitter app, with lots of hands-on experience in IntelliJ, git, Docker, regex, Lambda API, Stream API, REST API and JSON. I practised Scrum, attending every daily meeting and supporting my team members on Slack.
+I achieved a Bachelor of Science in Mathematics and Computer at the University of Toronto. I did excel in the proof courses such as number theory, group theory, algorithms, data structures and analysis. Logical thinking and pattern searches are my strengths and passions. I enjoy proving the correctness of the algorithms and optimizing code performance. I had one year working experience at GN Education as an operation specialist, which developed my problem-solving skills as I was in charge of all technical issues on the website. I also improved my communication skills since I supervised the workflow across all departments within the business. I have been a Data Engineer at Jarvis Technologies Group since May, working in an Agile environment using Python, PostgreSQL, bash script, and Java. I programmed a Linux cluster monitor, Java grep, JDBC, and Java Twitter app, with lots of hands-on experience in IntelliJ, git, Docker, regex, Lambda API, Stream API, REST API and JSON.
 
 ## Skills
 
 **Proficient:** Python, PostgresSQL, Java, Scrum, Git
 
-**Competent:** Python Pandas, Unit Test, REST API, Docker, Linux Bash Script
+**Competent:** Pandas, Unit Test, REST API, Docker, Bash Script
 
 **Familiar:** C, RSA, Regex, Dynamic Programming, Greedy Algorithm, Linear Optimization
 
@@ -47,6 +47,6 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MingyangLi
 
 
 ## Miscellaneous
-- Bilingual
+- Bilingual (Mandarin and English)
 - Badminton player
 - Spinning
